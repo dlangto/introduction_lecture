@@ -4,7 +4,7 @@ import os
 import pandas
 import time
 
-if not os.path.exists("json_Files"):
+if not os.path.exists("json_files"):
 	os.mkdir("json_files")
 
 access_point = "https://api.github.com"
@@ -28,18 +28,20 @@ for user_id in id_list:
 	if os.path.exists(file_name):
 		print("File exists: ", user_id)
 	else:	
+		try:
+			print(user_id)
+			response_text = github_session.get(access_point + "/users/" + user_id).text
+			
 
-		print(user_id)
-		response_text = github_session.get(access_point + "/users/" + user_id).text
-		
+			json_text = json.loads(response_text)
 
-		json_text = json.loads(response_text)
+			f = open(file_name + ".tmp", "w")
+			f.write(json.dumps(json_text))
+			f.close()
 
-		f = open(file_name + ".tmp", "w")
-		f.write(json.dumps(json_text))
-		f.close()
-
-		os.rename(file_name + ".tmp", file_name)
+			os.rename(file_name + ".tmp", file_name)
+		except Exception as e:
+			print(e)
 		
 		time.sleep(1)
 
