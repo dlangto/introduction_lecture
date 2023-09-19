@@ -8,7 +8,7 @@ if not os.path.exists("parsed_files"):
 
 dataset = pandas.DataFrame()
 
-json_file_name = "json_files/erinata.json"
+json_file_name = "json_files/dAAAb.json"
 
 f = open(json_file_name, "r")
 json_data = json.load(f)
@@ -16,10 +16,33 @@ f.close()
 
 
 
-ghid = json_data['login']
+gh_id = json_data['login']
 gh_number_id = json_data['id']
+updated_at = json_data['updated_at']
+followers = json_data['followers']
 name = json_data['name']
 
-print(ghid)
+print(gh_id)
 print(gh_number_id)
+print(updated_at)
+print(followers)
 print(name)
+
+row = pandas.DataFrame.from_records(
+	[
+	{
+		'gh_id': gh_id,
+		'gh_number_id': gh_number_id,
+		'updated_at': updated_at,
+		'followers': followers,
+		'name': name
+
+	}
+	]
+	)
+
+print(row)
+dataset = pandas.concat([dataset, row])
+
+dataset.to_csv("parsed_files/github_user_data.csv"
+				, index=False)
