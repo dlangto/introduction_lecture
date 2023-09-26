@@ -1,2 +1,7 @@
-gh_id,gh_number_id,updated_at,followers,name
-dAAAb,1607280,2023-08-26T14:12:14Z,67,Ju Chun Ko
+gh_id,gh_number_id,updated_at,followers,name,followers_url
+AdiChat,10634210,2023-07-16T16:01:40Z,3260,Aditya Chatterjee,https://api.github.com/users/AdiChat/followers
+dAAAb,1607280,2023-08-26T14:12:14Z,67,Ju Chun Ko,https://api.github.com/users/dAAAb/followers
+erinata,534415,2023-09-07T15:16:44Z,102,Chungsang Tom Lam,https://api.github.com/users/erinata/followers
+RobinWu,12975,2022-03-15T06:26:52Z,33,吴少斌,https://api.github.com/users/RobinWu/followers
+tina1998612,19768276,2023-09-06T11:14:31Z,1049,李婷婷 Lee Ting Ting,https://api.github.com/users/tina1998612/followers
+VinayMavani,32626935,2017-10-09T03:08:46Z,17,Vinay Mavani,https://api.github.com/users/VinayMavani/followers
